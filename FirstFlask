@@ -1,0 +1,49 @@
+import flask
+
+app = flask.Flask(__name__)
+
+#tores: [
+#  {'name' : 'My store',
+#   'items' : [
+#     {'name' : 'Chair 1',
+#      'price' : 59.99
+#       }
+#
+#   }
+#
+stores: str = 'My first store'
+@app.route('/store', methods=['DELETE'])
+def delete_store():
+    return "In delete store"
+
+
+@app.route('/store', methods=['POST'])
+def create_store():
+    return 'In create store'
+
+
+# http://local:5000/store/chair
+@app.route('/store/<string:name>')
+def get_store():
+    return "In get store 1"
+
+
+# http://local:5000/stores
+@app.route('/store')
+def get_stores():
+    return flask.jsonify({'stores': stores})
+
+
+# POST http://local:5000/store/<store_name>/item
+@app.route('/store/<string:name>/item', methods=['POST'])
+def create_item_in_store():
+    return "create"
+
+
+# GET http://local:5000/store/<store_name>/item
+@app.route('/store/<string:name>/item')
+def get_item_in_store():
+    return "get item fro store"
+
+
+app.run(port=5000)
