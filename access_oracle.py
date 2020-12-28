@@ -1,7 +1,7 @@
 import cx_Oracle
 
-dsn_tns = cx_Oracle.makedsn('64.101.193.207', '1541', service_name='CFNSTG.cisco.com')
-conn = cx_Oracle.connect(user=r'apps', password='metal1nk', dsn=dsn_tns)
+dsn_tns = cx_Oracle.makedsn('64.101.193.207', '1541', service_name='abcnd.cisco.com')
+conn = cx_Oracle.connect(user=r'yyyyy', password='xxxxxx', dsn=dsn_tns)
 
 c = conn.cursor()
 
